@@ -10,44 +10,4 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="de.eregion.scopecalc.ScopeCalcActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="27dp"
-        android:layout_marginEnd="27dp"
-        android:id="@+id/editAperture" />
-
-    <TextView
-        android:text="Focal length (mm)"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:id="@+id/textView"
-        android:layout_below="@+id/editAperture"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Aperture (mm)"
-        android:layout_alignBaseline="@+id/editAperture"
-        android:layout_alignBottom="@+id/editAperture"
-        android:layout_toLeftOf="@+id/editAperture"
-        android:layout_toStartOf="@+id/editAperture" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:layout_below="@+id/editAperture"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:id="@+id/editFocalLength" />
 </RelativeLayout>
