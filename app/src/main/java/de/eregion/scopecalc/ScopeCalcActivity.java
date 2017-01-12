@@ -34,6 +34,18 @@ epmax   = (int)(focallength/mmin)
         fratio = (float) (Float.valueOf(focallength_edit.getText().toString()) / Float.valueOf(aperture_edit.getText().toString()));
         fratio_text.setText(String.format("F-Ratio: %3.2f", round(fratio,2)));
 
+        mmin = (int) (Float.valueOf(aperture_edit.getText().toString())/7.0);
+        mmin_text.setText(String.format("lowest magnification: %3.0fx", round(mmin,0)));
+
+        mmax = (int) (Float.valueOf(aperture_edit.getText().toString())*2);
+        mmax_text.setText(String.format("highest magnification: %3.0fx", round(mmax,0)));
+
+        epmin = (int) (Float.valueOf(focallength_edit.getText().toString())/mmin);
+        epmin_text.setText(String.format("(%3.0f mm)", round(epmin,0)));
+
+        epmax = (int) (Float.valueOf(focallength_edit.getText().toString())/mmax);
+        epmax_text.setText(String.format("(%3.0f mm)", round(epmax,0)));
+
     }
 
 
@@ -47,20 +59,22 @@ epmax   = (int)(focallength/mmin)
         fratio_text = (TextView) findViewById(R.id.fRatio_textView);
         mmin_text   = (TextView) findViewById(R.id.minMag_textView);
         mmax_text   = (TextView) findViewById(R.id.maxMag_textView);
+        epmin_text  = (TextView) findViewById(R.id.minEP_textView);
+        epmax_text  = (TextView) findViewById(R.id.maxEP_textView);
 
         aperture_edit = (EditText) findViewById(R.id.editText_aperture);
         focallength_edit = (EditText) findViewById(R.id.editText_focalLength);
 
         //attach listeners to the two text fields
-        aperture_edit.setOnClickListener(new View.OnClickListener() {
+        aperture_edit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onClick(View v) {
+            public void onFocusChange(View v, boolean changed) {
                 calc_and_update();
             }
         });
-        focallength_edit.setOnClickListener(new View.OnClickListener() {
+        focallength_edit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onClick(View v) {
+            public void onFocusChange(View v, boolean changed) {
                 calc_and_update();
             }
         });
